@@ -36,6 +36,10 @@ app.post("/api/details", async (req, res) => {
   }
 });
 
+app.post("*", async (req, res) => {
+  res.json("react-google-place-suggest");
+});
+
 const PORT = 5000;
 
 app.listen(PORT, () => {

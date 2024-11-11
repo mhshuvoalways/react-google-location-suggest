@@ -3,15 +3,20 @@ import ReactGooglePlaceSuggest from "./ReactGooglePlaceSuggest";
 const App = () => {
   const apiKey = "AIzaSyDzaGX7PNgU8qxtlGt8788Vig8nQ9tMRkw";
 
-  const onChange = () => {
-
+  const handlePlaceSelect = (data) => {
+    console.log(data);
   };
 
   return (
     <ReactGooglePlaceSuggest
       apiKey={apiKey}
-      onChange={onChange}
-      topGapofList="10px"
+      handlePlaceSelect={handlePlaceSelect}
+      inputClass={{
+        border: "1px solid #efefef",
+      }}
+      suggestionClass={{
+        listStyleType: "none",
+      }}
     />
   );
 };

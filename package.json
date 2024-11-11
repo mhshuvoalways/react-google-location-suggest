@@ -1,6 +1,6 @@
 {
   "name": "react-google-place-suggest",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "",
   "main": "dist/ReactGooglePlaceSuggest.umd.js",
   "module": "dist/ReactGooglePlaceSuggest.es.js",

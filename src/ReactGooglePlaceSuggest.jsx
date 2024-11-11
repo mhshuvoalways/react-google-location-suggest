@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import LocationIcon from "./assets/location.svg";
 import "./index.css";
 
-const GoogleAutocomplete = ({ apiKey, onChange, topGapofList }) => {
+const GoogleAutocomplete = ({
+  apiKey,
+  handlePlaceSelect,
+  inputClass,
+  suggestionClass,
+}) => {
   const [input, setInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
@@ -12,16 +17,19 @@ const GoogleAutocomplete = ({ apiKey, onChange, topGapofList }) => {
     const userInput = e.target.value;
     setInput(userInput);
     if (userInput) {
-      const response = await fetch(`https://react-google-place-suggest/api/autocomplete`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          apiKey,
-          address: userInput,
-        }),
-      });
+      const response = await fetch(
+        `https://react-google-place-suggest.vercel.app/api/autocomplete`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            apiKey,
+            address: userInput,
+          }),
+        }
+      );
       const data = await response.json();
       if (data.predictions) {
         setSuggestions(data.predictions);
@@ -53,22 +61,25 @@ const GoogleAutocomplete = ({ apiKey, onChange, topGapofList }) => {
   };
 
   const fetchPlaceDetails = async (placeId) => {
-    const response = await fetch(`https://react-google-place-suggest/api/details`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        apiKey,
-        placeId: placeId,
-      }),
-    });
+    const response = await fetch(
+      `https://react-google-place-suggest.vercel.app/api/details`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          apiKey,
+          placeId: placeId,
+        }),
+      }
+    );
     const data = await response.json();
     return data.result;
   };
 
   useEffect(() => {
-    onChange(selectedPlace);
+    handlePlaceSelect(selectedPlace);
   }, [selectedPlace]);
 
   return (
@@ -79,13 +90,11 @@ const GoogleAutocomplete = ({ apiKey, onChange, topGapofList }) => {
         onChange={changeHandler}
         onKeyDown={keyDownHandler}
         placeholder="Enter address"
-        className="google-place-suggest-input"
+        className={`google-place-suggest-input`}
+        style={inputClass}
       />
-      {suggestions.length > 0 && (
-        <ul
-          style={{ listStyleType: "none", padding: 0, top: topGapofList }}
-          className="google-place-suggest-ul"
-        >
+      {input && suggestions.length > 0 && (
+        <ul className={`google-place-suggest-ul`} style={suggestionClass}>
           {suggestions.map((suggestion, index) => (
             <li
               key={suggestion.place_id}
@@ -96,7 +105,11 @@ const GoogleAutocomplete = ({ apiKey, onChange, topGapofList }) => {
               onMouseEnter={() => setSelectedIndex(index)}
               onClick={() => selectHandle(suggestion)}
             >
-              <img src={LocationIcon} alt="" className="google-place-suggest-li-location"/>
+              <img
+                src={LocationIcon}
+                alt=""
+                className="google-place-suggest-li-location"
+              />
               {suggestion.description}
             </li>
           ))}

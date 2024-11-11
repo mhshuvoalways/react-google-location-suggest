@@ -1,19 +1,19 @@
 # react-google-place-suggest
 
-`react-google-place-suggest` is a React component that provides Google Places Autocomplete functionality. This component allows users to search for places by name or address and select suggestions to view detailed place information, including latitude and longitude.
+`react-google-place-suggest` is a React component providing Google Places Autocomplete functionality. This component allows users to search for places by name or address, select suggestions, and view detailed place information such as latitude and longitude.
 
-![Demo Screenshot](path/to/your/demo-screenshot.png) <!-- Add an actual screenshot here for better visual guidance -->
+<img src="https://res.cloudinary.com/mhshuvoalways/image/upload/v1731344830/portfolio/react-google-place-suggest.png"/>
 
 ## Features
 
 - 🌐 **Google Places Autocomplete**: Fetches place suggestions based on user input.
-- 🎯 **Keyboard Navigation**: Allows users to navigate suggestions using arrow keys.
-- 🖱️ **Clickable Suggestions**: Users can select suggestions with a mouse click.
-- 🌍 **Place Details Fetching**: Retrieves detailed information (like latitude and longitude) for selected places.
+- 🎯 **Keyboard Navigation**: Navigate through suggestions using arrow keys.
+- 🖱️ **Clickable Suggestions**: Select suggestions with a mouse click.
+- 🌍 **Place Details Fetching**: Retrieves detailed information, including latitude and longitude, for selected places.
 
 ## Installation
 
-You can install `react-google-place-suggest` via npm:
+Install `react-google-place-suggest` via npm:
 
 ```bash
 npm install react-google-place-suggest
@@ -30,10 +30,6 @@ To use this component, you'll need a [Google Places API key](https://developers.
 3. Enable the "Places API" for your project.
 4. Generate an API key under "Credentials."
 
-### Set Up CORS (Client-Side Only)
-
-If you're using this component on the client side, Google Places API may block requests due to CORS restrictions. It's recommended to use a proxy server to handle the requests if you're running into CORS issues. Alternatively, if you're able to, use the component server-side to bypass CORS restrictions.
-
 ## Usage
 
 Here's how to use the component in your React app:
@@ -41,17 +37,33 @@ Here's how to use the component in your React app:
 ### Basic Example
 
 ```javascript
-import React from 'react';
-import GoogleAutocomplete from 'react-google-place-suggest';
+import React from "react";
+import ReactGooglePlaceSuggest from "react-google-place-suggest";
 
-function App() {
+const App = () => {
+  const apiKey = "YOUR_API_KEY";
+
+  const handlePlaceSelect = (data) => {
+    console.log(data); // Logs the place details including latitude and longitude
+  };
+
   return (
-    <div>
-      <h1>Google Places Autocomplete</h1>
-      <GoogleAutocomplete apiKey="YOUR_API_KEY" />
-    </div>
+    <ReactGooglePlaceSuggest
+      apiKey={apiKey}
+      handlePlaceSelect={handlePlaceSelect}
+      inputClass={{
+        border: "1px solid #efefef",
+        padding: "8px",
+      }}
+      suggestionClass={{
+        listStyleType: "none",
+        padding: "8px",
+        backgroundColor: "#fff",
+        cursor: "pointer",
+      }}
+    />
   );
-}
+};
 
 export default App;
 ```
@@ -60,9 +72,12 @@ Replace `YOUR_API_KEY` with your actual Google Places API key.
 
 ### Component Props
 
-| Prop      | Type     | Description                                           |
-|-----------|----------|-------------------------------------------------------|
-| apiKey    | string   | **Required**. Your Google Places API key.             |
+| Prop                | Type     | Description                                                                                           |
+| ------------------- | -------- | ----------------------------------------------------------------------------------------------------- |
+| `apiKey`            | string   | **Required**. Your Google Places API key.                                                             |
+| `handlePlaceSelect` | function | **Required**. Callback function triggered when a suggestion is selected. Receives full place details. |
+| `inputClass`        | object   | **Optional**. Style object to customize the input field (e.g., border, padding).                      |
+| `suggestionClass`   | object   | **Optional**. Style object to customize each suggestion item (e.g., padding, color, cursor).          |
 
 ## Component Behavior
 
@@ -74,16 +89,32 @@ Replace `YOUR_API_KEY` with your actual Google Places API key.
 
 ```javascript
 import React from "react";
-import GoogleAutocomplete from "react-google-place-suggest";
+import ReactGooglePlaceSuggest from "react-google-place-suggest";
 
-function App() {
+const App = () => {
+  const apiKey = "YOUR_API_KEY";
+
+  const handlePlaceSelect = (data) => {
+    console.log(data);
+  };
+
   return (
-    <div>
-      <h1>Google Place Suggest</h1>
-      <GoogleAutocomplete apiKey="YOUR_API_KEY" />
-    </div>
+    <ReactGooglePlaceSuggest
+      apiKey={apiKey}
+      handlePlaceSelect={handlePlaceSelect}
+      inputClass={{
+        border: "1px solid #efefef",
+        padding: "8px",
+      }}
+      suggestionClass={{
+        listStyleType: "none",
+        padding: "8px",
+        backgroundColor: "#fff",
+        cursor: "pointer",
+      }}
+    />
   );
-}
+};
 
 export default App;
 ```
