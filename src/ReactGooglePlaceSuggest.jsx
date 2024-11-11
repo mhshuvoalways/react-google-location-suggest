@@ -12,7 +12,7 @@ const GoogleAutocomplete = ({ apiKey, onChange, topGapofList }) => {
     const userInput = e.target.value;
     setInput(userInput);
     if (userInput) {
-      const response = await fetch(`http://localhost:5000/api/autocomplete`, {
+      const response = await fetch(`https://react-google-place-suggest/api/autocomplete`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +53,7 @@ const GoogleAutocomplete = ({ apiKey, onChange, topGapofList }) => {
   };
 
   const fetchPlaceDetails = async (placeId) => {
-    const response = await fetch(`http://localhost:5000/api/details`, {
+    const response = await fetch(`https://react-google-place-suggest/api/details`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
