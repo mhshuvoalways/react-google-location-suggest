@@ -1,0 +1,51 @@
+{
+  "name": "react-google-place-suggest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/ReactGooglePlaceSuggest.umd.js",
+  "module": "dist/ReactGooglePlaceSuggest.es.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mhshuvoalways/react-google-place-suggest.git"
+  },
+  "keywords": [
+    "react",
+    "google",
+    "autocomplete",
+    "place-suggest",
+    "place-autocomplete",
+    "react-autocomplete",
+    "react-place-suggest",
+    "react-place-autocomplete",
+    "react-google-autocomplete",
+    "react-google-place-suggest",
+    "react-google-place-autocomplete"
+  ],
+  "author": "MH Shuvo",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "prepare": "npm run build"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^9.13.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.11.0",
+    "vite": "^5.4.10",
+    "vite-plugin-css-injected-by-js": "^3.5.2"
+  }
+}
