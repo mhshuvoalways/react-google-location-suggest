@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import LocationIcon from "./assets/location.svg";
 import "./index.css";
 
-const GoogleAutocomplete = ({
+const GoogleLocationSuggest = ({
   apiKey,
+  handleLocationSelect,
   defaultValue,
   placeholder,
-  handleLocationSelect,
   inputClass,
   suggestionClass,
 }) => {
@@ -84,7 +84,7 @@ const GoogleAutocomplete = ({
     if (!input) {
       setInput(defaultValue);
     }
-  }, []);
+  }, [defaultValue]);
 
   useEffect(() => {
     handleLocationSelect(selectedLocation);
@@ -127,4 +127,4 @@ const GoogleAutocomplete = ({
   );
 };
 
-export default GoogleAutocomplete;
+export default GoogleLocationSuggest;

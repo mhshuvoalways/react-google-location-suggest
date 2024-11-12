@@ -48,9 +48,9 @@ const App = () => {
   return (
     <GoogleLocationSuggest
       apiKey={"YOUR_API_KEY"}
-      defaultValue={"11735 meadow"}
-      locationholder={"Enter your address"}
       handleLocationSelect={handleLocationSelect}
+      defaultValue={"11735 meadow"}
+      placeholder={"Enter your address"}
       inputClass={{
         border: "1px solid #efefef",
       }}
@@ -66,7 +66,7 @@ export default App;
 
 Relocation `YOUR_API_KEY` with your actual Google locations API key.
 
-Here's the updated props table including `defaultValue` and `locationholder`:
+Here's the updated props table including `defaultValue` and `placeholder`:
 
 ---
 
@@ -76,10 +76,10 @@ Here's the updated props table including `defaultValue` and `locationholder`:
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------- |
 | `apiKey`               | string   | **Required**. Your Google locations API key.                                                             |
 | `handleLocationSelect` | function | **Required**. Callback function triggered when a suggestion is selected. Receives full location details. |
+| `defaultValue`         | string   | **Optional**. Initial value for the input field.                                                         |
+| `placeholder`          | string   | **Optional**. placeholder text displayed in the input field when empty.                                  |
 | `inputClass`           | object   | **Optional**. Style object to customize the input field (e.g., border).                                  |
 | `suggestionClass`      | object   | **Optional**. Style object to customize each suggestion item (e.g., top).                                |
-| `defaultValue`         | string   | **Optional**. Initial value for the input field.                                                         |
-| `locationholder`       | string   | **Optional**. locationholder text displayed in the input field when empty.                               |
 
 ## Development
 
