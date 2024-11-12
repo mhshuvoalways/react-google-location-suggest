@@ -19,6 +19,12 @@ Install `react-google-location-suggest` via npm:
 npm install react-google-location-suggest
 ```
 
+or with yarn:
+
+```bash
+yarn add react-google-location-suggest
+```
+
 ## Setup
 
 ### Get a Google locations API Key
@@ -63,12 +69,6 @@ const App = () => {
 
 export default App;
 ```
-
-Relocation `YOUR_API_KEY` with your actual Google locations API key.
-
-Here's the updated props table including `defaultValue` and `placeholder`:
-
----
 
 ### Component Props
 
