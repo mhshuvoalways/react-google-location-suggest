@@ -41,25 +41,21 @@ import React from "react";
 import ReactGooglePlaceSuggest from "react-google-place-suggest";
 
 const App = () => {
-  const apiKey = "YOUR_API_KEY";
-
   const handlePlaceSelect = (data) => {
-    console.log(data); // Logs the place details including latitude and longitude
+    console.log(data);
   };
 
   return (
     <ReactGooglePlaceSuggest
-      apiKey={apiKey}
+      apiKey={"YOUR_API_KEY"}
+      defaultValue={"11735 meadow"}
+      placeholder={"Enter your address"}
       handlePlaceSelect={handlePlaceSelect}
       inputClass={{
         border: "1px solid #efefef",
-        padding: "8px",
       }}
       suggestionClass={{
-        listStyleType: "none",
-        padding: "8px",
-        backgroundColor: "#fff",
-        cursor: "pointer",
+        top: "10px",
       }}
     />
   );
@@ -70,54 +66,20 @@ export default App;
 
 Replace `YOUR_API_KEY` with your actual Google Places API key.
 
+Here's the updated props table including `defaultValue` and `placeholder`:
+
+---
+
 ### Component Props
 
 | Prop                | Type     | Description                                                                                           |
 | ------------------- | -------- | ----------------------------------------------------------------------------------------------------- |
 | `apiKey`            | string   | **Required**. Your Google Places API key.                                                             |
 | `handlePlaceSelect` | function | **Required**. Callback function triggered when a suggestion is selected. Receives full place details. |
-| `inputClass`        | object   | **Optional**. Style object to customize the input field (e.g., border, padding).                      |
-| `suggestionClass`   | object   | **Optional**. Style object to customize each suggestion item (e.g., padding, color, cursor).          |
-
-## Component Behavior
-
-- **Type to Search**: Type a place name or address in the input field to see suggestions.
-- **Navigate with Keyboard**: Use arrow keys to navigate the list and press Enter to select.
-- **Mouse Click Selection**: Click on any suggestion to select it and view details.
-
-### Example Code with All Features
-
-```javascript
-import React from "react";
-import ReactGooglePlaceSuggest from "react-google-place-suggest";
-
-const App = () => {
-  const apiKey = "YOUR_API_KEY";
-
-  const handlePlaceSelect = (data) => {
-    console.log(data);
-  };
-
-  return (
-    <ReactGooglePlaceSuggest
-      apiKey={apiKey}
-      handlePlaceSelect={handlePlaceSelect}
-      inputClass={{
-        border: "1px solid #efefef",
-        padding: "8px",
-      }}
-      suggestionClass={{
-        listStyleType: "none",
-        padding: "8px",
-        backgroundColor: "#fff",
-        cursor: "pointer",
-      }}
-    />
-  );
-};
-
-export default App;
-```
+| `inputClass`        | object   | **Optional**. Style object to customize the input field (e.g., border).                               |
+| `suggestionClass`   | object   | **Optional**. Style object to customize each suggestion item (e.g., top).                             |
+| `defaultValue`      | string   | **Optional**. Initial value for the input field.                                                      |
+| `placeholder`       | string   | **Optional**. Placeholder text displayed in the input field when empty.                               |
 
 ## Development
 

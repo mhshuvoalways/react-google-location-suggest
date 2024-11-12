@@ -1,21 +1,21 @@
 import ReactGooglePlaceSuggest from "./ReactGooglePlaceSuggest";
 
 const App = () => {
-  const apiKey = "AIzaSyDzaGX7PNgU8qxtlGt8788Vig8nQ9tMRkw";
-
   const handlePlaceSelect = (data) => {
     console.log(data);
   };
 
   return (
     <ReactGooglePlaceSuggest
-      apiKey={apiKey}
+      apiKey={"YOUR_API_KEY"}
+      defaultValue={"11735 meadow"}
+      placeholder={"Enter your address"}
       handlePlaceSelect={handlePlaceSelect}
       inputClass={{
         border: "1px solid #efefef",
       }}
       suggestionClass={{
-        listStyleType: "none",
+        top: "10px",
       }}
     />
   );

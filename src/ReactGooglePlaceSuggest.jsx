@@ -4,11 +4,13 @@ import "./index.css";
 
 const GoogleAutocomplete = ({
   apiKey,
+  defaultValue,
+  placeholder,
   handlePlaceSelect,
   inputClass,
   suggestionClass,
 }) => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(defaultValue);
   const [suggestions, setSuggestions] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [selectedPlace, setSelectedPlace] = useState(null);
@@ -89,7 +91,7 @@ const GoogleAutocomplete = ({
         value={input}
         onChange={changeHandler}
         onKeyDown={keyDownHandler}
-        placeholder="Enter address"
+        placeholder={placeholder}
         className={`google-place-suggest-input`}
         style={inputClass}
       />
