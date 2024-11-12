@@ -6,21 +6,21 @@ const GoogleAutocomplete = ({
   apiKey,
   defaultValue,
   placeholder,
-  handlePlaceSelect,
+  handleLocationSelect,
   inputClass,
   suggestionClass,
 }) => {
-  const [input, setInput] = useState(defaultValue);
+  const [input, setInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  const [selectedPlace, setSelectedPlace] = useState(null);
+  const [selectedLocation, setSelectedLocation] = useState(null);
 
   const changeHandler = async (e) => {
     const userInput = e.target.value;
     setInput(userInput);
     if (userInput) {
       const response = await fetch(
-        `https://react-google-place-suggest.vercel.app/api/autocomplete`,
+        `https://react-google-location-suggest.vercel.app/api/autocomplete`,
         {
           method: "POST",
           headers: {
@@ -59,12 +59,12 @@ const GoogleAutocomplete = ({
     setSuggestions([]);
     setSelectedIndex(-1);
     const placeDetails = await fetchPlaceDetails(place.place_id);
-    setSelectedPlace(placeDetails);
+    setSelectedLocation(placeDetails);
   };
 
   const fetchPlaceDetails = async (placeId) => {
     const response = await fetch(
-      `https://react-google-place-suggest.vercel.app/api/details`,
+      `https://react-google-location-suggest.vercel.app/api/details`,
       {
         method: "POST",
         headers: {
@@ -81,36 +81,42 @@ const GoogleAutocomplete = ({
   };
 
   useEffect(() => {
-    handlePlaceSelect(selectedPlace);
-  }, [selectedPlace]);
+    if (!input) {
+      setInput(defaultValue);
+    }
+  }, []);
+
+  useEffect(() => {
+    handleLocationSelect(selectedLocation);
+  }, [selectedLocation]);
 
   return (
-    <div className="google-place-suggest">
+    <div className="google-location-suggest">
       <input
         type="text"
         value={input}
         onChange={changeHandler}
         onKeyDown={keyDownHandler}
         placeholder={placeholder}
-        className={`google-place-suggest-input`}
+        className={`google-location-suggest-input`}
         style={inputClass}
       />
       {input && suggestions.length > 0 && (
-        <ul className={`google-place-suggest-ul`} style={suggestionClass}>
+        <ul className={`google-location-suggest-ul`} style={suggestionClass}>
           {suggestions.map((suggestion, index) => (
             <li
               key={suggestion.place_id}
               style={{
                 backgroundColor: selectedIndex === index ? "#efefef" : "white",
               }}
-              className={`google-place-suggest-li`}
+              className={`google-location-suggest-li`}
               onMouseEnter={() => setSelectedIndex(index)}
               onClick={() => selectHandle(suggestion)}
             >
               <img
                 src={LocationIcon}
                 alt=""
-                className="google-place-suggest-li-location"
+                className="google-location-suggest-li-location"
               />
               {suggestion.description}
             </li>

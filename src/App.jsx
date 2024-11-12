@@ -1,16 +1,16 @@
-import ReactGooglePlaceSuggest from "./ReactGooglePlaceSuggest";
+import GoogleLocationSuggest from "./GoogleLocationSuggest";
 
 const App = () => {
-  const handlePlaceSelect = (data) => {
+  const handleLocationSelect = (data) => {
     console.log(data);
   };
 
   return (
-    <ReactGooglePlaceSuggest
-      apiKey={"YOUR_API_KEY"}
+    <GoogleLocationSuggest
+      apiKey={"AIzaSyDzaGX7PNgU8qxtlGt8788Vig8nQ9tMRkw"}
       defaultValue={"11735 meadow"}
       placeholder={"Enter your address"}
-      handlePlaceSelect={handlePlaceSelect}
+      handleLocationSelect={handleLocationSelect}
       inputClass={{
         border: "1px solid #efefef",
       }}

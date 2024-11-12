@@ -1,14 +1,14 @@
-.google-place-suggest {
+.google-location-suggest {
   position: relative;
 }
 
-.google-place-suggest-input {
+.google-location-suggest-input {
   outline-width: 0px;
   padding: 8px;
   width: 100%;
 }
 
-.google-place-suggest-ul {
+.google-location-suggest-ul {
   position: absolute;
   left: 0;
   right: 0;
@@ -19,7 +19,7 @@
   padding: 0;
 }
 
-.google-place-suggest-li {
+.google-location-suggest-li {
   border-radius: 4px;
   cursor: pointer;
   padding: 8px;
@@ -29,6 +29,6 @@
   gap: 0 10px;
 }
 
-.google-place-suggest-li-location {
+.google-location-suggest-li-location {
   width: 14px;
 }

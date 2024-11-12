@@ -1,5 +1,5 @@
 {
-  "name": "react-google-place-suggest",
+  "name": "react-google-location-suggest",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

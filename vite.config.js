@@ -6,9 +6,9 @@ export default defineConfig({
   plugins: [react(), cssInjectedByJsPlugin()],
   build: {
     lib: {
-      entry: "src/ReactGooglePlaceSuggest.jsx",
-      name: "ReactGooglePlaceSuggest",
-      fileName: (format) => `ReactGooglePlaceSuggest.${format}.js`,
+      entry: "src/GoogleLocationSuggest.jsx",
+      name: "GoogleLocationSuggest",
+      fileName: (format) => `GoogleLocationSuggest.${format}.js`,
       formats: ["es", "umd"],
     },
     rollupOptions: {

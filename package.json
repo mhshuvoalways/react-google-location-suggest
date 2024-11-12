@@ -1,28 +1,30 @@
 {
-  "name": "react-google-place-suggest",
-  "version": "1.0.6",
+  "name": "react-google-location-suggest",
+  "version": "1.0.1",
   "description": "",
-  "main": "dist/ReactGooglePlaceSuggest.umd.js",
-  "module": "dist/ReactGooglePlaceSuggest.es.js",
+  "main": "dist/GoogleLocationSuggest.umd.js",
+  "module": "dist/GoogleLocationSuggest.es.js",
   "files": [
     "dist"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/mhshuvoalways/react-google-place-suggest.git"
+    "url": "https://github.com/mhshuvoalways/react-google-location-suggest.git"
   },
   "keywords": [
     "react",
+    "place",
     "google",
+    "location",
     "autocomplete",
-    "place-suggest",
-    "place-autocomplete",
+    "location-suggest",
+    "location-autocomplete",
     "react-autocomplete",
-    "react-place-suggest",
+    "react-location-suggest",
     "react-place-autocomplete",
     "react-google-autocomplete",
-    "react-google-place-suggest",
-    "react-google-place-autocomplete"
+    "react-google-location-suggest",
+    "react-google-location-autocomplete"
   ],
   "author": "MH Shuvo",
   "license": "MIT",
