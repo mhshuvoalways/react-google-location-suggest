@@ -40,8 +40,6 @@ To use this component, you'll need a [Google locations API key](https://develope
 
 Here's how to use the component in your React app:
 
-### Basic Example
-
 ```javascript
 import React from "react";
 import GoogleLocationSuggest from "react-google-location-suggest";
