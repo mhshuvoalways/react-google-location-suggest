@@ -54,7 +54,7 @@ onst App = () => {
 
   return (
     <GoogleLocationSuggest
-      apiKey={"AIzaSyDzaGX7PNgU8qxtlGt8788Vig8nQ9tMRkw"}
+      apiKey={"YOUR_API_KEY"}
       handleLocationSelect={handleLocationSelect}
       onChangeHandler={onChangeHandler}
       defaultValue={"11735 meadow"}
