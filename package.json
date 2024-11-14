@@ -1,6 +1,6 @@
 {
   "name": "react-google-location-suggest",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "main": "dist/GoogleLocationSuggest.umd.js",
   "module": "dist/GoogleLocationSuggest.es.js",

@@ -14,7 +14,6 @@ const GoogleLocationSuggest = ({
   const [input, setInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  const [selectedLocation, setSelectedLocation] = useState(null);
 
   const changeHandler = async (e) => {
     const userInput = e.target.value;
@@ -63,7 +62,10 @@ const GoogleLocationSuggest = ({
     setSuggestions([]);
     setSelectedIndex(-1);
     const placeDetails = await fetchPlaceDetails(place.place_id);
-    setSelectedLocation(placeDetails);
+    handleLocationSelect(placeDetails);
+    if (onChangeHandler) {
+      onChangeHandler(placeDetails?.formatted_address);
+    }
   };
 
   const fetchPlaceDetails = async (placeId) => {
@@ -89,10 +91,6 @@ const GoogleLocationSuggest = ({
       setInput(defaultValue);
     }
   }, [defaultValue]);
-
-  useEffect(() => {
-    handleLocationSelect(selectedLocation);
-  }, [selectedLocation]);
 
   return (
     <div className="google-location-suggest">
