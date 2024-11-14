@@ -5,6 +5,7 @@ import "./index.css";
 const GoogleLocationSuggest = ({
   apiKey,
   handleLocationSelect,
+  onChangeHandler,
   defaultValue,
   placeholder,
   inputClass,
@@ -18,6 +19,9 @@ const GoogleLocationSuggest = ({
   const changeHandler = async (e) => {
     const userInput = e.target.value;
     setInput(userInput);
+    if (onChangeHandler) {
+      onChangeHandler(userInput);
+    }
     if (userInput) {
       const response = await fetch(
         `https://react-google-location-suggest.vercel.app/api/autocomplete`,

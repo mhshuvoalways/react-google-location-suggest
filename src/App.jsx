@@ -5,10 +5,15 @@ const App = () => {
     console.log(data);
   };
 
+  const onChangeHandler = (value) => {
+    console.log(value);
+  };
+
   return (
     <GoogleLocationSuggest
-      apiKey={"YOUR_API_KEY"}
+      apiKey={"AIzaSyDzaGX7PNgU8qxtlGt8788Vig8nQ9tMRkw"}
       handleLocationSelect={handleLocationSelect}
+      onChangeHandler={onChangeHandler}
       defaultValue={"11735 meadow"}
       placeholder={"Enter your address"}
       inputClass={{

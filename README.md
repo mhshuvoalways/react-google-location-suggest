@@ -41,18 +41,22 @@ To use this component, you'll need a [Google locations API key](https://develope
 Here's how to use the component in your React app:
 
 ```javascript
-import React from "react";
 import GoogleLocationSuggest from "react-google-location-suggest";
 
-const App = () => {
+onst App = () => {
   const handleLocationSelect = (data) => {
     console.log(data);
   };
 
+  const onChangeHandler = (value) => {
+    console.log(value);
+  };
+
   return (
     <GoogleLocationSuggest
-      apiKey={"YOUR_API_KEY"}
+      apiKey={"AIzaSyDzaGX7PNgU8qxtlGt8788Vig8nQ9tMRkw"}
       handleLocationSelect={handleLocationSelect}
+      onChangeHandler={onChangeHandler}
       defaultValue={"11735 meadow"}
       placeholder={"Enter your address"}
       inputClass={{
@@ -74,6 +78,7 @@ export default App;
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------- |
 | `apiKey`               | string   | **Required**. Your Google locations API key.                                                             |
 | `handleLocationSelect` | function | **Required**. Callback function triggered when a suggestion is selected. Receives full location details. |
+| `onChangeHandler`      | function | **Optional**. Callback function called each time the user types in the input field.                      |
 | `defaultValue`         | string   | **Optional**. Initial value for the input field.                                                         |
 | `placeholder`          | string   | **Optional**. placeholder text displayed in the input field when empty.                                  |
 | `inputClass`           | object   | **Optional**. Style object to customize the input field (e.g., border).                                  |
